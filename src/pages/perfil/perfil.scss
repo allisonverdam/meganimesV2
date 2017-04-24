@@ -1,0 +1,95 @@
+page-perfil {
+    ion-grid{
+        position: relative;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    ion-row{
+        z-index: 2;
+    }
+
+    .status{
+        margin-top: 0px;
+    }
+
+    .round-image{
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .col-anime{
+        padding: 0;
+        padding-bottom: 2px;
+        background-color: #101010;
+    }
+
+    .header-perfil{
+        background: rgba(23, 23, 23, 0.99);
+    }
+
+    .img-fundo-perfil{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+    .toolbar-ios .segment-button {
+        max-width: 100%;
+        height: 100%;
+    }
+
+    .segment-ios .segment-button {
+        border-style: none;
+        border-color: #fff;
+    }
+
+   .col-anime{
+        padding: 0;
+        padding-bottom: 2px;
+        background-color: #101010;
+    }
+
+    span{
+        color: #fff;
+    }
+
+    .card-background-page {
+
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+
+        ion-card img{
+            min-height: 8.4em;
+            height: 100%;
+        }
+
+        .card-md{
+            height: 90%;
+        }
+
+        .card-title {
+            position: absolute;
+            top: 0%;
+            font-size: 0.8em;
+            width: 100%;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(23, 23, 23, 0.67);
+            min-height: 2.5em;
+        }
+
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+}

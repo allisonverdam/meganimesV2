@@ -1,0 +1,34 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list [hidden]="user != null">
+      <button ion-button full (click)="loginFacebook()">Logar</button>
+    </ion-list>
+
+    <ion-list [hidden]="user == null" *ngIf="user != null">
+      <button ion-button full menuToggle (click)="logout()">Logout</button>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="user.picture.data.url">
+        </ion-avatar>
+        <h2>{{user.name}}</h2>
+        <p>{{user.email}}</p>
+      </ion-item>
+      <!--     
+      <button ion-button full menuToggle (click)="abrirPerfil()">Perfil</button>-->
+
+
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

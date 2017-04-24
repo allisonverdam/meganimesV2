@@ -1,0 +1,40 @@
+<!--
+  Generated template for the Animes page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="little_dark">
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+        <ion-searchbar color="little_dark" cancelButtonText="Cancelar" placeholder="Digite o nome do Anime"
+        [(ngModel)]="myInput"
+        [showCancelButton]="true"
+        (ionInput)="onInputSearchbar($event)"
+        (ionCancel)="onCancelSearchbar($event)"
+        (ionClear)="onClearSearchbar($event)">
+      </ion-searchbar>
+</ion-header>
+
+<ion-content class="fundo_dark card-background-page">
+
+<ion-spinner class="align-horizontal" [hidden]="animes != null"></ion-spinner>
+<p [hidden]="!animeNotFound">Nenhum anime encontrado.</p>
+
+  <ion-list>
+    <ion-row wrap>
+      <ion-col class="col-anime" (click)="abrirAnime(anime)" *ngFor="let anime of animes">
+        <ion-card class="anime-item">
+          <img src="{{anime.imagem}}" onerror="this.src='./assets/imgs/img-anime-404.png'">
+          <div text-center class="card-title padding-vertical">{{anime.nome}}</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+<ion-infinite-scroll [enabled]="podeInfinite" threshold="50%" (ionInfinite)="doInfinite(pagina+1, $event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+
+</ion-content>

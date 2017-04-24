@@ -1,0 +1,71 @@
+<!--
+  Generated template for the Anime page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="little_dark">
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+  <ion-searchbar color="little_dark" cancelButtonText="Cancelar" placeholder="Digite o número do Episódio" [(ngModel)]="myInput"
+    [showCancelButton]="true" (ionInput)="onInputSearchbar($event)" (ionCancel)="onCancelSearchbar($event)" (ionClear)="onClearSearchbar($event)">
+    </ion-searchbar>
+</ion-header>
+
+
+<ion-content [hidden]="anime == null" class="fundo_dark">
+  <ion-row>
+    <ion-col>
+      <img src="{{anime.imagem}}" class="button_center img-anime-list" onerror="this.src='./assets/imgs/img-anime-404.png'">
+      <button ion-button block color="little_dark" class="button_center" (click)="abrirSinopse($event)">Sinopse</button>
+    </ion-col>
+    <ion-col>
+      <ion-row class="row">
+        <p><b>Classificação:</b></p>
+      </ion-row>
+      <ion-row class="row rate">
+        <rating class="align-vertical" [(ngModel)]="rate" (click)="votar()"></rating>
+      </ion-row>
+      <ion-row class="row">
+        <p><b>Temporadas:</b> {{anime?.temporadas}}</p>
+      </ion-row>
+      <ion-row class="row">
+        <p><b>Estúdio:</b> {{anime?.estudio}}</p>
+      </ion-row>
+      <ion-row class="row">
+        <p><b>Status:</b> {{anime?.status}}</p>
+      </ion-row>
+      <ion-row class="row">
+        <p><b>Generos:</b> <span class="generos" *ngFor="let genero of anime.generos; let isLast = last">{{genero?.nome}}{{isLast ? '.' : ', '}}</span></p>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-item>
+    <ion-label>
+      <p class="select-temporada">Temporada</p>
+    </ion-label>
+    <ion-select [(ngModel)]="temporada" (ionChange)="carregarEpisodios(anime.id, temporada)">
+      <ion-option selected="true" *ngFor="let temp of temporadas">{{temp}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-spinner class="align-horizontal" [hidden]="episodios != null || hasEpisodes == false"></ion-spinner>
+
+  <ion-item text-center [hidden]="hasEpisodes == true">
+    <h1>Nenhum episódio até o momento.</h1>
+  </ion-item>
+
+  <ion-row *ngFor="let episodio of episodios; let i = index">
+    <ion-item (click)="toggleDetalhes(episodio)" [ngClass]="{'item-ios-dark' : episodio.showImagem}" color="little_dark">
+      <ion-icon color="#fff" class="material-icons" item-right name="play_circle_outline" (click)="abrirEpisodio(episodio, i)">&#xE039;</ion-icon>
+      <p>{{episodio.nome}}</p>
+      <div [hidden]="!episodio.showImagem">
+        <p [hidden]="episodio.sub_titulo == ''" class="sub_title">{{episodio.sub_titulo}}</p>
+        <img src="{{episodio.imagem}}" onerror="this.src='./assets/imgs/img-ep-404.png'" class="img-collapse">
+      </div>
+    </ion-item>
+  </ion-row>
+</ion-content>

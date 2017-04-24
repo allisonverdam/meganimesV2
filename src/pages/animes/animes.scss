@@ -1,0 +1,68 @@
+page-animes {
+    
+    @media screen and (max-aspect-ratio: 13/9) {
+        .col-anime{
+            padding: 0;
+            padding-bottom: 2px;
+            background-color: #101010;
+            -webkit-flex: 0 0 33.3333%;
+            -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+        }
+    }
+
+    @media screen and (min-aspect-ratio: 13/9) {
+        .col-anime{
+            padding: 0;
+            padding-bottom: 2px;
+            background-color: #101010;
+            -webkit-flex: 0 0 20%;
+            -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+
+
+
+    span{
+        color: #fff;
+    }
+
+    .card-background-page {
+
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+
+        ion-card img{
+            min-height: 8.4em;
+            height: 100%;
+        }
+
+        .card-md{
+            height: 90%;
+        }
+
+        .card-title {
+            position: absolute;
+            top: 0%;
+            font-size: 0.8em;
+            width: 100%;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(23, 23, 23, 0.67);
+            min-height: 2.5em;
+        }
+
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+}

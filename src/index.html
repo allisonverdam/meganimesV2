@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head data-cast-api-enabled="true">
+  <meta charset="UTF-8">
+  <title>Meganimes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Content-Security-Policy" content="script-src * 'unsafe-inline' 'unsafe-eval'; object-src 'self'">
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#444">
+
+  <link href="assets/chromecast/video-js.css" rel="stylesheet">
+  <link href="assets/chromecast/videojs-chromecast.css" rel="stylesheet">
+  <link href="assets/chromecast/videojs-seek-buttons.css" rel="stylesheet">
+
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js"></script>
+
+  <!--<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
+
+  <link href="build/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app class="ios"></ion-app>
+
+  <!-- The polyfills js is generated during the build process -->
+  <script src="build/polyfills.js"></script>
+
+  <!-- The bundle js is generated during the build process -->
+  <script src="build/main.js"></script>
+
+  <script type="text/javascript"
+        src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+  <!-- add chromecast sdk -->
+  <script src="assets/chromecast/video.js"></script>
+  <!-- add video.js sdk -->
+  <script src="assets/chromecast/videojs-chromecast.js"></script>
+  <!-- add video.js playlist sdk -->
+  <!--<script src="assets/chromecast/videojs-playlist.js"></script>-->
+  <!-- add videojs-seek-buttons.js sdk -->
+  <script src="assets/chromecast/videojs-seek-buttons.js"></script>  
+  <!-- add plugin -->
+
+  <script src="https://cdn.jsdelivr.net/webtorrent/latest/webtorrent.min.js"></script>
+</body>
+
+</html>

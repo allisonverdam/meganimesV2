@@ -1,0 +1,37 @@
+page-episodio {
+  contain: none !important;
+
+    /*
+    video::-internal-media-controls-download-button {
+        display:none;
+    }
+
+   video::-webkit-media-controls-enclosure {
+        overflow:hidden;
+   }
+
+   video::-webkit-media-controls-panel {
+        width: calc(100% + 40px); // Adjust as needed
+   }
+   */   
+
+   @media print{@page {size: landscape}}
+
+
+   video{
+        max-width: 100%;
+        max-height: 100%;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        overflow: hidden;
+        //position: fixed;
+        right: 0;
+        top: 0;
+   }
+   
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+    }
+}
